@@ -1,0 +1,89 @@
+" Modeline and Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
+"                            __
+"   __                      /\ \                        __
+"  /\_\    ___     __     __\ \ \/'\            __  __ /\_\    ___ ___
+"  \/\ \  /'___\ /'__`\ /'__`\ \ , <    _______/\ \/\ \\/\ \ /' __` __`\
+"   \ \ \/\ \__//\  __//\  __/\ \ \\`\ /\______\ \ \_/ |\ \ \/\ \/\ \/\ \
+"    \ \_\ \____\ \____\ \____\\ \_\ \_\/______/\ \___/  \ \_\ \_\ \_\ \_\
+"     \/_/\/____/\/____/\/____/ \/_/\/_/         \/__/    \/_/\/_/\/_/\/_/
+"
+"   This is the personal .vimrc file of Zdenek Suchan inspired by
+"   Steve Francia (http://spf13.com).
+"}
+
+" General {
+
+    language mes en
+
+    "set langmenu=en_US
+    "let $LANG = 'en_US'
+    "source $VIMRUNTIME/delmenu.vim
+    "source $VIMRUNTIME/menu.vim
+
+    set nospell                         " Spell checking off
+    set fileencodings=cp1250,ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
+
+    set colorcolumn=80
+" }
+
+" Formatting {
+
+    set shiftwidth=2                " Use indents of 4 spaces
+    set expandtab                   " Tabs are spaces, not tabs
+    set tabstop=2                   " An indentation every four columns
+    set softtabstop=2               " Let backspace delete indent
+
+" }
+
+" Plugins {
+
+    " SnipMate {
+        " Setting the author var
+        " If forking, please overwrite in your .vimrc.local file
+        let g:snips_author = 'Zdenek Suchan <zdenek.suchan@comap.cz>'
+    " }
+
+    " indent_guides {
+        set ts=2 sw=2 et
+    " }
+
+    " PyMode {
+        let g:pymode_python = 'python'
+    " }
+
+" }
+
+" GUI Settings {
+
+    " "Color
+    colorscheme gruvbox
+    "colorscheme clarity
+
+    " GVIM- (here instead of .gvimrc)
+    if has('gui_running')
+        if has("gui_gtk2")
+            set guifont=Consolas\ 10
+        else
+            set guifont=Consolas:h10:cEASTEUROPE
+        endif
+    endif
+
+    :winpos 2200 0                  " Position of window
+    au GUIEnter * simalt ~x         " Maximized window
+
+" }
+
+" Key (re)Mappings {
+
+    " Quick save command
+    noremap <C-Z> :update<CR>
+    vnoremap <C-Z> <C-C>:update<CR>
+    inoremap <C-Z> <C-O>:update<CR>
+
+    " Quick formatting of paragraphs
+    vmap Q gq
+    nmap Q gqap
+
+" }
